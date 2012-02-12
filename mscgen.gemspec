@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Masata NISHIDA}]
   s.date = %q{2012-02-12}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{mscgen( http://www.mcternan.me.uk/mscgen/ ) is simple sequence chart generator. this gem generates a script for mscgen.}
   s.email = %q{masatanish@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.6}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{this gem generates a script for mscgen.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
