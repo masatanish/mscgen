@@ -6,11 +6,10 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
 
  Requirements
 ----------
+### install mscgen
 
-* install mscgen
-
-    $ yum install mscgen # Linux(CentOS, Fedora..)
-    $ brew isntall mscgen # MacOS X
+     $ yum install mscgen # Linux(CentOS, Fedora..)
+     $ brew isntall mscgen # MacOS X
 
 
  Install
