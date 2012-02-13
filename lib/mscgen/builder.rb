@@ -1,7 +1,17 @@
 require 'tempfile'
 
 module Mscgen
-  class Chart
+  class Builder
+    @@mscgen_path = "mscgen"
+
+    # set mscgen command path
+    def self.mscgen_path=(path)
+      @@mscgen_path = path
+    end
+    # return mscgen command path
+    def self.mscgen_path
+      @@mscgen_path
+    end
 
     # sequence chart width
     attr_accessor :witdh
@@ -18,14 +28,14 @@ module Mscgen
       @width = width
     end
 
-    # add entity to chart
+    # add entity to builder
     def add_entity(name)
       entity = Entity.new(name)
       @entities << entity
       return entity
     end
 
-    # find entity from chart or add entity to chart
+    # find entity from builder or add entity to builder
     def find_or_add_entity(name)
       entity = @entities.find {|e| e.label == name.to_s }
       if entity.nil?
@@ -35,8 +45,8 @@ module Mscgen
       end
     end
 
-    # add messages to chart..
-    # _msg_ should respond to 'to_msc'
+    # add messages to builder..
+    # _msg_ should respond to 'msc_text'
     def add_message(msg)
       raise ArgumentError unless msg.respond_to?(:to_msc)
       @messages << msg
@@ -53,8 +63,8 @@ module Mscgen
     end
 
     # execute mscgen command
-    def to_img(filename, type=nil)
-      text = to_msc()
+    def build(filename, type=nil)
+      text = msc_text
       execute_msc_cmd(text, filename, type)
       text
     end
@@ -92,7 +102,7 @@ EOS
       f.write(text)
       f.close
       type_str = FILE_TYPE.fetch(type, "png")
-      system("#{Mscgen.path} -T #{type_str} -o #{filename} -i #{f.path}")
+      system("#{@@mscgen_path} -T #{type_str} -o #{filename} -i #{f.path}")
     ensure
       f.close(true) # delete temporary file
     end
