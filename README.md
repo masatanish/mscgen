@@ -22,23 +22,36 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
 ----------
 ### Setting Mscgen Path
 
-    Builder.mscgen_path = '/usr/local/bin/mscgen'
+    Mscgen.path = '/usr/local/bin/mscgen'
 
 ### Create sequence scripts or images
 
     require 'mscgen'
     
-    # create builder
-    builder = Mscgen::Builder.new
+    # create chart
+    chart = Mscgen::Chart.new
     
     # add entities and messages
-    a = builder.add_entity('a')
-    b = builder.add_entity('b')
-    builder.add_message(Mscgen::Message.new(a,b, 'label'))
+    a = chart.add_entity('a')
+    b = chart.add_entity('b')
+    chart.add_message(Mscgen::Message.new(a,b, 'label'))
+    chart.add_message(Mscgen::Message.new(b,a, 'return', :type => :method_return ))
     
     # create image file
-    builder.build('seq.png', :png)
+    chart.to_img('seq.png', :png)
 
+    # or create a script for mscgen
+    script = chart.to_msc
+    File.open('seq.txt', 'w') {|f| f.write script }
+
+### Support Image Format
+ 
+* png
+* svg
+* eps
+* ismap
+
+refer `mscgen --help`.
 
 
  Contributing to mscgen
