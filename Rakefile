@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "mscgen"
   gem.homepage = "http://github.com/masatanish/mscgen"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{this gem generates a script for mscgen.}
+  gem.description = %Q{mscgen( http://www.mcternan.me.uk/mscgen/ ) is simple sequence chart generator. this gem generates a script for mscgen.}
   gem.email = "masatanish@gmail.com"
   gem.authors = ["Masata NISHIDA"]
   # dependencies defined in Gemfile
