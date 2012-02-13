@@ -1,7 +1,7 @@
  mscgen for ruby
 ======================
 
-Mscgen( http://www.mcternan.me.uk/mscgen/ ) is simple sequence chart generator. 
+[Mscgen](http://www.mcternan.me.uk/mscgen/) is simple sequence chart generator. 
 This gem generates a script for mscgen. This can generate sequence image(i.e. png, svg...) if you set mscgen path.
 
  Requirements
@@ -20,11 +20,11 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
 
  Usage
 ----------
-=== Setting Mscgen Path
+### Setting Mscgen Path
 
     Builder.mscgen_path = '/usr/local/bin/mscgen'
 
-=== Create Sequences
+### Create sequence scripts or images
 
     require 'mscgen'
     
