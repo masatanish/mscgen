@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mscgen"
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Masata NISHIDA"]
-  s.date = "2012-02-13"
+  s.date = "2012-02-17"
   s.description = "mscgen( http://www.mcternan.me.uk/mscgen/ ) is simple sequence chart generator. this gem generates a script for mscgen."
   s.email = "masatanish@gmail.com"
   s.extra_rdoc_files = [
