@@ -36,9 +36,17 @@ module Mscgen
     end
 
     # add messages to chart..
-    # _msg_ should respond to 'to_msc'
-    def add_message(msg)
-      raise ArgumentError unless msg.respond_to?(:to_msc)
+    # _from_or_msg_:: from entity or Message instance
+    # _to_:: to entity
+    # _label_:: message label string
+    # _param_:: message parameters
+    def add_message(from_or_msg, to=nil, label=nil, param=nil)
+      if to.nil? and label.nil? and param.nil?
+        msg = from_or_msg
+        raise ArgumentError unless msg.respond_to?(:to_msc)
+      else
+        msg = Mscgen::Message.new(from_or_msg, to, label, param)
+      end
       @messages << msg
       msg
     end

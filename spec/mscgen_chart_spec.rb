@@ -62,13 +62,20 @@ describe Mscgen::Chart do
         lambda {subject}.should change(@chart.messages, :size).by(1)
       end
     end
-
-    describe "#to_msc" do
+    context "with parameters to initialize Message object" do
+      it "should create new Message object" do
+        lambda { @chart.add_message(@ent1, @ent2, 'foobar') }.should change(@chart.messages, :size).by(1)
+      end
+      it "should create new Message object" do
+        lambda { @chart.add_message(@ent1, @ent2, 'foobar', :type => :method_return) }.should change(@chart.messages, :size).by(1)
+      end
     end
-
-    describe "#to_img" do
-    end
-    
-
   end
+
+  describe "#to_msc" do
+  end
+
+  describe "#to_img" do
+  end
+
 end

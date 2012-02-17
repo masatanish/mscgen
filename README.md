@@ -26,6 +26,7 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
 
 ### Create sequence scripts or images
 
+    require 'rubygems'
     require 'mscgen'
     
     # create chart
@@ -34,8 +35,12 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
     # add entities and messages
     a = chart.add_entity('a')
     b = chart.add_entity('b')
-    chart.add_message(Mscgen::Message.new(a,b, 'label'))
-    chart.add_message(Mscgen::Message.new(b,a, 'return', :type => :method_return ))
+    c = chart.add_entity('ccc')
+
+    # create messages
+    chart.add_message(a,b, 'hoge', :type => :method)
+    chart.add_message(b,a, 'return', :type => :method_return)
+    chart.add_message(b,c, 'hoge')
     
     # create image file
     chart.to_img('seq.png', :png)

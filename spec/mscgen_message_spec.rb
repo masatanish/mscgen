@@ -8,8 +8,26 @@ describe Mscgen::Message do
   end
 
   describe "#initialize" do
-  subject { Mscgen::Message.new(@ent1, @ent2, @label) }
+    before do
+      @param = nil
+    end
+    subject { Mscgen::Message.new(@ent1, @ent2, @label, @param) }
     it { should be_kind_of(Mscgen::Message) }
+
+    context "with known allow type parameter" do
+      before do
+        @param = {:type => :method}
+        it { should be_kind_of(Mscgen::Message) }
+      end
+    end
+    context "with unknown allow type parameter" do
+      before do
+        @param = {:type => :foo } # :foo is unknown type
+      end
+      it do
+        lambda {subject}.should raise_error(Mscgen::Message::UnknownAllowType)
+      end
+    end
   end
   describe "#from" do
     subject { Mscgen::Message.new(@ent1, @ent2, "abc").from }
