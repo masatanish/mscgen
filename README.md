@@ -20,15 +20,13 @@ This gem generates a script for mscgen. This can generate sequence image(i.e. pn
 
  Usage
 ----------
-### Setting Mscgen Path
-
-    Mscgen.path = '/usr/local/bin/mscgen'
-
-### Create sequence scripts or images
 
     require 'rubygems'
     require 'mscgen'
     
+    # set mscgen path (default is 'mscgen')
+    Mscgen.path = '/usr/local/bin/mscgen'
+
     # create chart
     chart = Mscgen::Chart.new
     
